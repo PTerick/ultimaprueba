@@ -100,12 +100,11 @@ class _ScreenState
   }
 
   Widget _listViewItem(EmployeeListContentResponseDto item) {
-    
     return GestureDetector(
         onTap: () => {
               Navigator.pushNamed(context, "/employeeDetailScreen",
                   arguments: item),
-                  debugPrint('movieTitle: ${item.surname}')
+              debugPrint('movieTitle: ${item.surname}')
             },
         child: Padding(
           padding: EdgeInsets.all(8.0),
@@ -117,22 +116,19 @@ class _ScreenState
                 children: [
                   PlatformText(
                     "${item.surname} ${item.name}",
-                    
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   PlatformText(
                     "${item.email}",
-                    
                     style: TextStyle(fontSize: FontSizes.s10),
                   )
                 ],
               ),
-              
             ],
           ),
         ));
   }
-
+//comentario
   @override
   BlocWidgetListener<AbstractBlocState> provideBlocListener(
       BuildContext context) {
