@@ -46,14 +46,6 @@ class _ScreenState extends AbstractState<AuthenticationBloc, LoginNormalView> {
         minHeight: minHeight,
         maxHeight: maxHeight,
       ),
-      decoration: BoxDecoration(
-        color: Provider.of<AppTheme>(context).bg1,
-        border: Border.all(
-          color: Provider.of<AppTheme>(context).accent1!,
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(10),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(0.0),
         child: Center(child: _loginForm(buildContext)),

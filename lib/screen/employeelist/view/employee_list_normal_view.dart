@@ -65,7 +65,7 @@ class _ScreenState
                 // Show a red background as the item is swiped away.
                 background: Container(
                     color: Provider.of<AppTheme>(context).mainMaterialColor),
-                child: _listViewItem(item),
+               child: _listViewItem(item),
               );
             });
       }

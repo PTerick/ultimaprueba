@@ -30,7 +30,7 @@ class _ScreenState
 
   @override
   Widget buildWidget(BuildContext buildContext, AbstractBlocState state) {
-     double minWidth = 250;
+    double minWidth = 250;
     double maxWidth = MediaQuery.of(context).size.width * 50 / 100;
     if (maxWidth < minWidth) {
       maxWidth = minWidth;
@@ -48,17 +48,6 @@ class _ScreenState
         minHeight: minHeight,
         maxHeight: maxHeight,
       ),
-
-
-
-      decoration: BoxDecoration(
-        color: Provider.of<AppTheme>(context).bg1,
-        border: Border.all(
-          color: Provider.of<AppTheme>(context).accent1!,
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(10),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(0.0),
         child: Center(child: _insertForm(buildContext)),
@@ -67,7 +56,6 @@ class _ScreenState
 
     List<Widget> children = <Widget>[];
     children.add(b1);
-
 
     return PlatformScaffold(
         material: (_, __) =>
@@ -81,35 +69,9 @@ class _ScreenState
           backgroundColor: Provider.of<AppTheme>(context).mainMaterialColor,
           title: Text("Create Employee"),
         ),
-        body: Center(child: b1,));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        body: Center(
+          child: b1,
+        ));
 
 /*
 
@@ -153,7 +115,7 @@ class _ScreenState
         //Navigator.pushReplacementNamed(context, "/employeeListScreen");
         var result = true;
         Navigator.pop(context, result);
-        
+
         return;
       }
 
@@ -172,9 +134,6 @@ class _ScreenState
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email);
   }
-
-
-
 
   Widget _insertForm(BuildContext buildContext) {
     return Form(

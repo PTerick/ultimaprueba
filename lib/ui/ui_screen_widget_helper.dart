@@ -7,21 +7,33 @@ import 'package:provider/provider.dart';
 class UIScreenWidgetHelper {
   static Widget itemDetail(BuildContext context, String title, String value) {
     var appTheme = Provider.of<AppTheme>(context);
-    return Column(children: [
-      Align(
-          alignment: Alignment.centerLeft,
-          child: PlatformText(
-            title,
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: appTheme.mainTextColor),
-          )),
-      Align(
-          alignment: Alignment.centerLeft,
-          child: PlatformText(
-            value,
-            style: TextStyle(fontWeight: FontWeight.normal),
-          )),
-    ]);
+    return Container(
+      margin: EdgeInsets.only(bottom:10),
+      padding: EdgeInsets.only(bottom:10),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black12,
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(children: [
+        Align(
+            alignment: Alignment.centerLeft,
+            child: PlatformText(
+              title,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, color: appTheme.mainTextColor),
+            )),
+        Align(
+            alignment: Alignment.centerLeft,
+            child: PlatformText(
+              value,
+              style: TextStyle(fontWeight: FontWeight.normal),
+            )),
+      ]),
+    );
   }
 
   static Widget button(
