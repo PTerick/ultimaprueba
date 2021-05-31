@@ -52,20 +52,23 @@ class UIScreenWidgetHelper {
 
     return Padding(
       padding: EdgeInsets.only(top: paddingTop),
-      child: PlatformTextField(
-        obscureText: obscureText,
-        controller: textEditingController,
-        keyboardType: keyboardType,
-        style: TextStyle(
-          color: appTheme.mainTextColor,
-        ),
-        maxLines: keyboardType == TextInputType.multiline ? null : 1,
-        material: (_, __) => MaterialTextFieldData(
-          decoration: InputDecoration(
-              contentPadding:
-                  new EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              labelText: inputDecorationLabelText,
-              labelStyle: TextStyle(color: appTheme.mainTextColor)),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: paddingTop),
+        child: PlatformTextField(
+          obscureText: obscureText,
+          controller: textEditingController,
+          keyboardType: keyboardType,
+          style: TextStyle(
+            color: appTheme.mainTextColor,
+          ),
+          maxLines: keyboardType == TextInputType.multiline ? null : 1,
+          material: (_, __) => MaterialTextFieldData(
+            decoration: InputDecoration(
+                contentPadding:
+                    new EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                labelText: inputDecorationLabelText,
+                labelStyle: TextStyle(color: appTheme.mainTextColor)),
+          ),
         ),
       ),
     );

@@ -30,6 +30,45 @@ class _ScreenState
 
   @override
   Widget buildWidget(BuildContext buildContext, AbstractBlocState state) {
+     double minWidth = 250;
+    double maxWidth = MediaQuery.of(context).size.width * 50 / 100;
+    if (maxWidth < minWidth) {
+      maxWidth = minWidth;
+    }
+    double minHeight = 250;
+    double maxHeight = MediaQuery.of(context).size.height * 60 / 100;
+    if (maxHeight < minHeight) {
+      maxHeight = minHeight;
+    }
+
+    var b1 = Container(
+      constraints: BoxConstraints(
+        minWidth: minWidth,
+        maxWidth: maxWidth,
+        minHeight: minHeight,
+        maxHeight: maxHeight,
+      ),
+
+
+
+      decoration: BoxDecoration(
+        color: Provider.of<AppTheme>(context).bg1,
+        border: Border.all(
+          color: Provider.of<AppTheme>(context).accent1!,
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(0.0),
+        child: Center(child: _insertForm(buildContext)),
+      ),
+    );
+
+    List<Widget> children = <Widget>[];
+    children.add(b1);
+
+
     return PlatformScaffold(
         material: (_, __) =>
             MaterialScaffoldData(resizeToAvoidBottomInset: false),
@@ -42,7 +81,35 @@ class _ScreenState
           backgroundColor: Provider.of<AppTheme>(context).mainMaterialColor,
           title: Text("Create Employee"),
         ),
-        body: _insertForm(buildContext));
+        body: Center(child: b1,));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 
@@ -105,6 +172,9 @@ class _ScreenState
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email);
   }
+
+
+
 
   Widget _insertForm(BuildContext buildContext) {
     return Form(
