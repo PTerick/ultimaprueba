@@ -139,10 +139,12 @@ class _ScreenState
       },
       child: Card(
         child: ListTile(
-          title: Text("${item.surname} ${item.name}",
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          subtitle:
-              Text("${item.email}", style: TextStyle(fontSize: FontSizes.s10)),
+         leading: Icon(Icons.account_circle),
+              trailing: Icon(Icons.comment),
+              title: Text("${item.surname} ${item.name}",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text("${item.email}",
+                  style: TextStyle(fontSize: FontSizes.s10)),
         ),
       ),
     );
