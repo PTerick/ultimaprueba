@@ -11,6 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:provider/provider.dart';
 
+import '../../../responsive.dart';
+
 class EmployeeInsertNormalView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ScreenState();
@@ -70,7 +72,7 @@ class _ScreenState
           title: Text("Create Employee"),
         ),
         body: Center(
-          child: b1,
+          child: Responsive.isMobile(context) ? _insertForm(buildContext) : b1,
         ));
 
 /*

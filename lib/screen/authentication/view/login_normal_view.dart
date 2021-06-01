@@ -1,6 +1,7 @@
 import 'package:devon4ng_flutter_application_template/core_packages.dart';
 import 'package:devon4ng_flutter_application_template/model/bloc/authentication/authentication_bloc.dart';
 import 'package:devon4ng_flutter_application_template/model/bloc/bloc_state.dart';
+import 'package:devon4ng_flutter_application_template/responsive.dart';
 import 'package:devon4ng_flutter_application_template/screen/abstract_state.dart';
 import 'package:devon4ng_flutter_application_template/ui/ui_dialog_helper.dart';
 import 'package:devon4ng_flutter_application_template/ui/ui_screen_widget_helper.dart';
@@ -59,7 +60,11 @@ class _ScreenState extends AbstractState<AuthenticationBloc, LoginNormalView> {
         material: (_, __) =>
             MaterialScaffoldData(resizeToAvoidBottomInset: false),
         backgroundColor: Provider.of<AppTheme>(context).bg1,
-        body: Center(child: b1));
+
+        body: Center(
+            child:
+                Responsive.isMobile(context) ? _loginForm(buildContext) : b1));
+
   }
 
   @override
